@@ -2,11 +2,20 @@ import os
 from datetime import datetime
 
 import pandas as pd
-from aiogram.types import Message, FSInputFile
+from aiogram.types import Message, FSInputFile, ReplyKeyboardMarkup, KeyboardButton
 from aiogram.fsm.context import FSMContext
 
 
+
 from config import CSV_FILE
+
+# Кнопки для выбора типа транзакции
+transaction_type_keyboard = ReplyKeyboardMarkup(
+    keyboard=[[KeyboardButton(text="Приход"), KeyboardButton(text="Расход")]],
+    resize_keyboard=True,
+    one_time_keyboard=True,
+)
+
 
 
 def create_file_if_not_exists() -> None:

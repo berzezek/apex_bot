@@ -11,12 +11,14 @@ from aiogram.filters import CommandStart, Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.fsm.storage.memory import MemoryStorage
-from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import Message
+
 
 from utils import (
     create_file_if_not_exists,
     download_file,
     waiting_for_amount_and_description,
+    transaction_type_keyboard,
 )
 
 from config import TOKEN
@@ -45,12 +47,6 @@ class TransactionState(StatesGroup):
     waiting_for_amount_and_description = State()
 
 
-# Кнопки для выбора типа транзакции
-transaction_type_keyboard = ReplyKeyboardMarkup(
-    keyboard=[[KeyboardButton(text="Приход"), KeyboardButton(text="Расход")]],
-    resize_keyboard=True,
-    one_time_keyboard=True,
-)
 
 
 @dp.message(CommandStart())

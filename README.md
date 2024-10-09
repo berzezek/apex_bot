@@ -16,7 +16,7 @@ CSV_FILE=data.csv
 ```sh
 docker build -t my_bot .
 
-docker run my_bot -d
+docker run -d my_bot
 ```
 
 ## Автоматический запуск на windows
